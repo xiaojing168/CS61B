@@ -1,21 +1,20 @@
 
     public class BreakContinue {
         public static void windowPosSum(int[] a, int n) {
-            int[] newA = {};
             for(int i = 0; i < a.length; i++){
-                for(int j = i+n; j >0; j++){
-                    a[i] += a[j];
-                    if(a[i] < 0){
-                        continue;
-                    }
-                    else if(i+n > a.length){
-                        break;
-
-                    }
+                int sum = 0;
+                if(a[i] < 0){
+                    continue;
                 }
-                newA.add(a[i]);
-
+                for(int j = i; j <= n+i; j++){
+                    if(j > a.length - 1){
+                        break;
+                    }
+                    sum = sum + a[j];
+                    a[i] = sum;
+                }
             }
+
         }
 
         public static void main(String[] args) {

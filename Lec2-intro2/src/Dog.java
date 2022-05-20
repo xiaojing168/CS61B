@@ -1,9 +1,35 @@
 public class Dog {
-    public static void makeNoise(){
-        System.out.println("Bark!");
+    public int weightInPounds;
+    public static String binomen = "Canis familiaris";
+
+    public Dog(int w){
+        weightInPounds = w;
+    }
+    public void makeNoise(){
+        if(weightInPounds < 10){
+            System.out.println("yip!");
+        }else if(weightInPounds < 30){
+            System.out.println("bark");
+        }else {
+            System.out.println("woof!");
+        }
     }
 
-    public static void main(String[] args) {
-        makeNoise();
+    //invoked Dog class ,so use static
+    public static Dog maxDog(Dog d1, Dog d2){
+        if(d1.weightInPounds > d2.weightInPounds){
+            return d1;
+        }
+        return d2;
+
     }
+    //invoked d1,use non-static method
+    public Dog maxDog(Dog d2){
+        if(this.weightInPounds > d2.weightInPounds){
+            return this;
+        }
+        return d2;
+    }
+
+
 }
